@@ -22,11 +22,11 @@ local save will not follow you to the deployed site.
 `.github/workflows/deploy-pages.yml` publishes the repository root to GitHub
 Pages on every push to the default branch.
 
-One-time setup: under **Settings → Pages**, set **Source** to **GitHub
-Actions**. The workflow asks to enable Pages itself, but the automatic
-`GITHUB_TOKEN` is not allowed to create a Pages site, so the first run fails
-with `Resource not accessible by integration` until the source is set by hand.
-Once it is set, that step becomes a no-op and deploys run unattended.
+This is already configured. If the repository is ever recreated, the one-time
+setup is: under **Settings → Pages**, set **Source** to **GitHub Actions**. The
+workflow cannot do this for itself — the automatic `GITHUB_TOKEN` is not allowed
+to create a Pages site, and `configure-pages` fails with `Resource not
+accessible by integration` until the source is set by hand.
 
 `.nojekyll` is present so Pages serves the files as-is rather than running them
 through Jekyll.
